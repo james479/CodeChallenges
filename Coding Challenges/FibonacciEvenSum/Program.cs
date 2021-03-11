@@ -10,19 +10,23 @@ namespace FibonacciEvenSum
     {
         static void Main(string[] args)
         {
-            FibonacciSum(4000000);
+           long sum = FibonacciSum(100);
+           Console.WriteLine($"The Fibonacci Sum is {sum:n}");
         }
 
-        static void FibonacciSum (int maxNumber)
+
+
+        static long FibonacciSum (int maxNumber)
         {
-            int firstNumber = 1;
-            int secondNumber = 2;
-            int thirdNumber = firstNumber + secondNumber;
-            int evenSum = 2;
+            long firstNumber = 1;
+            long secondNumber = 2;
+            long thirdNumber = firstNumber + secondNumber;
+
+            long evenSum = 0;
 
             while(thirdNumber <= maxNumber)
             {
-                if (thirdNumber % 2 == 0)
+                if (isEven(thirdNumber))
                 {
                     evenSum += thirdNumber;
                 }
@@ -33,7 +37,19 @@ namespace FibonacciEvenSum
 
                 
             }
-            Console.WriteLine($"The Fibonacci Sum is {evenSum:n}");
+            return evenSum;
+        }
+
+        static bool isEven(long num)
+        {
+            if (num % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
