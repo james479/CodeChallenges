@@ -11,21 +11,27 @@ namespace CodingChallenges
         //index starts at zero
         static void Main(string[] args)
         {
-           long index = FibonacciTenDigits();
-            Console.WriteLine($"The first term where the index is 10 digits is {index}.");
+           long index = FibonacciDigits(5);
+           Console.WriteLine($"The first term where the index is 10 digits is {index}.");
         }
 
-        static long FibonacciTenDigits()
+        static long FibonacciDigits(int max)
         {
-            long firstNumber = 0;
-            long secondNumber = 1;
+            long firstNumber = 0;  //index 0
+            long secondNumber = 1;  //index 1
+
             long thirdNumber = firstNumber + secondNumber;
-            int index = 2;    //represents what index we are at in the sequence
+
+            int index = 1;    //represents what index we are at in the sequence
+
             bool tenDigits = false;
+
             while (!tenDigits)
             {
                 index++;
-                if (isTenDigits(thirdNumber))
+                Console.WriteLine($"{index}: {thirdNumber}");  //testing to see if F12 = 144
+                
+                if (isTenDigits(thirdNumber, max))
                 {
                     tenDigits = true;
                 }
@@ -35,14 +41,15 @@ namespace CodingChallenges
                     secondNumber = thirdNumber;
                     thirdNumber = secondNumber + firstNumber;
                 }
+                
             }
             return index;
         }
 
-        static bool isTenDigits(long number)
+        static bool isTenDigits(long number, int max)
         {
             string stringNumber = number.ToString();
-            if (stringNumber.Length >= 10)
+            if (stringNumber.Length >= max)
             {
                 return true;
             }
