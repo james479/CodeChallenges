@@ -10,8 +10,8 @@ namespace CodingChallenges
     {
         //index starts at zero
         static void Main(string[] args)
-        {
-           long index = FibonacciDigits(5);
+        { 
+           long index = FibonacciDigits(10);
            Console.WriteLine($"The first term where the index is 10 digits is {index}.");
         }
 
